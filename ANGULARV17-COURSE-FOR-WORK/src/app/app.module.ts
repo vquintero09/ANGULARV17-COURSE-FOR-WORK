@@ -5,10 +5,33 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
+import { RoutingModule } from './app.routing.module';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
+import { SimpleProductDetailComponent } from './pages/payment-page/simple-product-detail/simple-product-detail.component';
 
 @NgModule({
-	declarations: [AppComponent],
-	imports: [HttpClientModule, BrowserModule, BrowserAnimationsModule, HomeComponent],
+	declarations: [AppComponent, LoginPageComponent, NotFoundPageComponent],
+	imports: [
+		HttpClientModule, 
+		BrowserModule, 
+		BrowserAnimationsModule, 
+		HomeComponent,
+		RoutingModule,
+		MatFormFieldModule,
+		MatCardModule,
+		MatIcon,
+		MatInput,
+		MatButton,
+		PaymentPageComponent,
+		SimpleProductDetailComponent
+	],
 	bootstrap: [AppComponent],
 	providers: [provideAnimationsAsync()]
 })

@@ -10,31 +10,45 @@ import { IApiResponseProduct } from '../../services/models/product.api.interface
 import { Observable } from 'rxjs';
 import { CartService } from '../../services/cart.service';
 import { AsyncPipe } from '@angular/common';
-import { IProduct, IProductDetail } from '../../services/models/cart.inteface';
+import { IProductDetail } from '../../services/models/cart.inteface';
 import {MatCardModule} from '@angular/material/card';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatToolbar, MatIcon, MatBadgeModule, MatButtonModule, MatSidenavModule, ProductComponent, AsyncPipe, MatCardModule],
+  imports: [RouterLink, MatToolbar, MatIcon, MatBadgeModule, MatButtonModule, MatSidenavModule, ProductComponent, AsyncPipe, MatCardModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
 
   readonly ProductsApiService = inject(ProductsApiService);
-  private readonly _cartService = inject(CartService)
+  private readonly _cartService = inject(CartService);
+  private readonly _activatedRoute = inject(ActivatedRoute);
+  private readonly _router = inject(Router);
 
   count = 0;
-
   products$!: Observable<IApiResponseProduct[]>;
-
   productCart!: IProductDetail[];
 
-  
+  constructor() {
+   console.log( "Valores obtenidos por el state ==>", this._router.getCurrentNavigation()?.extras.state);
+  }
 
   ngOnInit(): void {
+    this._getApis();
+    this._getValueRoutes();
+  }
+
+  private _getValueRoutes () {
+    console.log(this._activatedRoute.snapshot.queryParams);
+
+    // console.log(this._activatedRoute.snapshot.queryParamMap.get('user'));
+  }
+
+  private _getApis () {
     //Forma manual de subscribirse a un observable
     // this._ProductsApiService.getProducts().subscribe((data) => this.products = data);
 
@@ -49,7 +63,6 @@ export class HomeComponent implements OnInit {
       next: (product) => this.productCart = product
     })
   }
-
   
   
 }
