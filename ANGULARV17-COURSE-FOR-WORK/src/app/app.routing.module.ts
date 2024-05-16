@@ -34,8 +34,6 @@ const routes: Routes = [
       }
     ]
   },
- 
-  
   {path: '', redirectTo: '/home', pathMatch: "full"},
   { path: 'login', redirectTo: '/login', pathMatch: "prefix"},
   { path: '**', component: NotFoundPageComponent}
@@ -43,7 +41,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true})],
   exports: [RouterModule],
   declarations: [],
   providers: [],

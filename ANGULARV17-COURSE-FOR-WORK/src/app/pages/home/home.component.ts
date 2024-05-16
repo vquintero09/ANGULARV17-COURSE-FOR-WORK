@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import {MatToolbar} from '@angular/material/toolbar';
 import {MatIcon} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -13,6 +13,7 @@ import { AsyncPipe } from '@angular/common';
 import { IProductDetail } from '../../services/models/cart.inteface';
 import {MatCardModule} from '@angular/material/card';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { LoginPageComponent } from '../login-page/login-page.component';
 
 
 @Component({
@@ -23,6 +24,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+  @Input () user?: string;
 
   readonly ProductsApiService = inject(ProductsApiService);
   private readonly _cartService = inject(CartService);
@@ -43,9 +45,11 @@ export class HomeComponent implements OnInit {
   }
 
   private _getValueRoutes () {
-    console.log(this._activatedRoute.snapshot.queryParams);
+    console.log("Valores obtenidos por queryParams ==> ", this._activatedRoute.snapshot.queryParams);
+    console.log("Valores obtenidos por queryParams ==> ", this._activatedRoute.snapshot.queryParamMap.get('user'));
 
-    // console.log(this._activatedRoute.snapshot.queryParamMap.get('user'));
+    console.log("Valores obtenidos por @Input ==> ", this.user);
+
   }
 
   private _getApis () {

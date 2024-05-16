@@ -6,7 +6,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RoutingModule } from './app.routing.module';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
@@ -17,7 +16,7 @@ import { PaymentPageComponent } from './pages/payment-page/payment-page.componen
 import { SimpleProductDetailComponent } from './pages/payment-page/simple-product-detail/simple-product-detail.component';
 
 @NgModule({
-	declarations: [AppComponent, LoginPageComponent, NotFoundPageComponent],
+	declarations: [AppComponent, NotFoundPageComponent],
 	imports: [
 		HttpClientModule, 
 		BrowserModule, 
