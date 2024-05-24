@@ -14,6 +14,7 @@ import { IProductDetail } from '../../services/models/cart.inteface';
 import {MatCardModule} from '@angular/material/card';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LoginPageComponent } from '../login-page/login-page.component';
+import { DemoService } from '../../services/demo.service';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
   private readonly _cartService = inject(CartService);
   private readonly _activatedRoute = inject(ActivatedRoute);
   private readonly _router = inject(Router);
+  private readonly _demo = inject(DemoService)
 
   count = 0;
   products$!: Observable<IApiResponseProduct[]>;
