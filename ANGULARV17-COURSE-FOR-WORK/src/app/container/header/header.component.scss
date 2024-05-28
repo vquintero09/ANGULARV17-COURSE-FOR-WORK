@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__hour {
+    color: #707eae;
+    font-size: 12px;
+  }
+
+  .header-user {
+    display: flex;
+    gap: 1em;
+    align-items: flex-start;
+
+    .header-user__user {
+      width: 55x;
+      height: 55px;
+    }
+  }
+}

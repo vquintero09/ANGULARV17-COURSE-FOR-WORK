@@ -1,0 +1,17 @@
+<div class="container">
+  <section class="grid-menu">
+    <app-menu />
+  </section>
+  <section class="grid-header">
+    <app-header />
+  </section>
+  <section class="grid-main">
+    <main class="main">
+      <h1>Contenido</h1>
+      <br />
+      <input type="text" placeholder="Ingresa tus nombres" [(ngModel)]="inputName">
+      <span>Nombre ingresado: {{inputName}} </span>
+      <button (click)="clickButton()">Cambiar valor</button>
+    </main>
+  </section>
+</div>
