@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
+import { RouterLink } from '@angular/router';
 
 import { RouterModule, Routes } from '@angular/router';
 import { DemoService } from '../../services/demo.service';
